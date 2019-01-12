@@ -1,12 +1,12 @@
 <template>
-  <div>{{ isFoo }}</div>
+  <div>foo</div>
 </template>
 
 <script>
 export default {
   name: "Foo",
-  data: () => ({
-    isFoo: true
-  })
+  props: {
+    disabled: Boolean
+  }
 };
 </script>
