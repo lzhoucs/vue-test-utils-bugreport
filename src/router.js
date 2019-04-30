@@ -8,8 +8,9 @@ export default new Router({
       component: {}
     },
     {
-      path: "/bar",
+      path: "/bar/:id",
       name: "bar",
+      props: true,
       component: {}
     }
   ]

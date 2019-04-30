@@ -1,4 +1,4 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import { mount, createLocalVue, shallowMount } from "@vue/test-utils";
 import Foo from "@/components/Foo.vue";
 import Router from "vue-router";
 import router from "@/router";
@@ -17,7 +17,7 @@ describe("Foo.vue", () => {
       router
     });
     wrapper.find({ ref: "bar-link-string" }).trigger("click");
-    expect(router.currentRoute.fullPath).toBe("/bar#hash1");
+    expect(router.currentRoute.fullPath).toBe("/bar/123#hash1");
   });
 
   it("should go to /bar when clicking on a router link with object location", () => {
@@ -26,24 +26,24 @@ describe("Foo.vue", () => {
       router
     });
     wrapper.find({ ref: "bar-link-obj" }).trigger("click");
-    expect(router.currentRoute.fullPath).toBe("/bar#hash1");
+    expect(router.currentRoute.fullPath).toBe("/bar/123#hash1");
   });
 
   it("should go to /bar when clicking on a button that uses `router.push` with string location", () => {
-    const wrapper = mount(Foo, {
+    const wrapper = shallowMount(Foo, {
       localVue,
       router
     });
     wrapper.find({ ref: "bar-btn-string" }).trigger("click");
-    expect(router.currentRoute.fullPath).toBe("/bar#hash1");
+    expect(router.currentRoute.fullPath).toBe("/bar/123#hash1");
   });
 
   it("should go to /bar when clicking on a button that uses `router.push` with object location", () => {
-    const wrapper = mount(Foo, {
+    const wrapper = shallowMount(Foo, {
       localVue,
       router
     });
     wrapper.find({ ref: "bar-btn-obj" }).trigger("click");
-    expect(router.currentRoute.fullPath).toBe("/bar#hash1");
+    expect(router.currentRoute.fullPath).toBe("/bar/123#hash1");
   });
 });

@@ -19,8 +19,8 @@
 export default {
   name: "Foo",
   data: () => ({
-    barLocationString: "/bar#hash1",
-    barLocationObj: { name: "bar", hash: "#hash1" }
+    barLocationString: "/bar/123#hash1",
+    barLocationObj: { name: "bar", hash: "#hash1", params: { id: 123 } }
   }),
   methods: {
     toBarString() {
